@@ -2,6 +2,17 @@
 
 一个基于 [SpeedAdmin](https://atsep.top/docs) 开发的客户关系管理系统，提供线索管理、联系人管理、客户管理、商机管理、合同管理、产品管理等核心功能。
 
+>开源不易，欢迎star
+
+<div align="center">
+    <p>
+        <a href="https://crm.atsep.top/web" target="_blank">演示</a> |
+        <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=iBE6f00ncZGbbtWN77DXBX8wj2xhtULA&jump_from=webapi&authKey=mN9IgHZ7tSmrGt29+RnuDvPnHyO4IH1Hp2lg3/bXPKT7yrwSHC7Y8SOdyvv30yhH">联系作者 | </a>
+        <a href="/public/readme/pay.png" target="_blank">打赏作者</a> |
+        <a href="https://atsep.top/docs" target="_blank">SpeedAdmin</a>
+    </p>
+</div>
+
 ## 演示
 
 地址: [https://crm.atsep.top/web](https://crm.atsep.top/web)
