@@ -18,13 +18,13 @@
             :value="selectedKeys[0]"
             style="width: 188px; margin-bottom: 8px; display: block"
             @change="e => setSelectedKeys(e.target.value ? [e.target.value] : [])"
-            @pressEnter="handleSearch(selectedKeys, confirm, column.dataIndex)"
+            @pressEnter="handleSearch(selectedKeys, confirm)"
           />
           <a-button
             type="primary"
             size="small"
             style="width: 90px; margin-right: 8px"
-            @click="handleSearch(selectedKeys, confirm, column.dataIndex)"
+            @click="handleSearch(selectedKeys, confirm)"
           >
             <template #icon><SearchOutlined /></template>
             搜索
@@ -110,7 +110,7 @@ const loadSuccess = (data: TreeData[]) => {
 };
 
 // 搜索处理
-const handleSearch = (selectedKeys: string[], confirm: () => void, dataIndex: string) => {
+const handleSearch = (selectedKeys: string[], confirm: () => void) => {
   confirm();
   doSearch(selectedKeys[0] || "", treeData);
 };
