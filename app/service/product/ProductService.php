@@ -100,7 +100,6 @@ class ProductService extends BaseService
      */
     public function delete($product_id)
     {
-        $authIds = $this->model->getUserIdsByPermissions();
         //错误信息
         $errorInfo = [];
         foreach ($product_id as $v) {

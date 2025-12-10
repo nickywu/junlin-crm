@@ -1,7 +1,7 @@
 <template>
   <a-layout :class="layoutClass">
     <layout-sidebar v-if="showSidebar" />
-    <a-layout>
+    <a-layout class="w-full">
       <layout-header />
       <layout-tabs />
       <a-layout-content class="layout-content">

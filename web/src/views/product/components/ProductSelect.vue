@@ -19,7 +19,7 @@
           />
         </template>
         <template v-else-if="column.key === 'action'">
-          <a href="javascript:;" @click="onDelete(record.product_id)">删除</a>
+           <s-confirm-button label="删除" title="确认要删除吗?" @confirm="onDelete(record.product_id)" />
         </template>
       </template>
     </a-table>
@@ -107,7 +107,7 @@ const handleSelectedData = (selectedData: Recordable[]) => {
   const selectList: Recordable[] = [];
   selectedData.forEach(element => {
     const obj = selectData.value.find(item => {
-      return item.product_id == element.id;
+      return item.product_id == element.product_id;
     });
     if (obj) {
       selectList.push(obj);
@@ -129,7 +129,7 @@ const createItem = (selectData: Recordable) => {
     number: 1, //数量
     unit: selectData.unit, //产品单位
     discount: 0, //折扣
-    product_id: selectData.id, //产品id
+    product_id: selectData.product_id, //产品id
     category: selectData.category //类别
   };
 };
@@ -144,9 +144,9 @@ function computedTotalPrice(item: Recordable) {
   return total_price;
 }
 
-const onDelete = (id: string | number) => {
-  selectData.value = selectData.value.filter(item => item.product_id != id);
-  productRef.value.remove(id);
+const onDelete = (product_id: string | number) => {
+  selectData.value = selectData.value.filter(item => item.product_id != product_id);
+  productRef.value.remove(product_id);
   emit("update:modelValue", selectData.value);
   emit("update:totalPrice", total.value);
 };

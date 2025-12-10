@@ -10,6 +10,7 @@ use think\facade\Db;
 use app\model\business\{BusinessStage, BusinessGroup, BusinessProduct};
 use app\model\system\User;
 use core\facade\Util;
+use app\model\product\Product;
 
 class BusinessService extends BaseService
 {
@@ -221,20 +222,8 @@ class BusinessService extends BaseService
         if (!$result) throw new FailedException($message);
         $product = $data['product'] ?? [];
         $result = $this->model->updateBy($id, $data);
-        if (!empty($product)) {
-            foreach ($product as $key => $value) {
-                if (!empty($value['id'])) {
-                    unset($product[$key]['id']);
-                }
-            }
-            $business = $this->model->find($id);
-            //删除删除
-            $business->product()->where('business_id', $id)->delete();
-            //关联新增
-            $business->product()->saveAll($product);
-        }
+         Product::syncRelatedRecords(BusinessProduct::class, 'business_id', $id, $product);
         if ($result) {
-
             $logContent = '更新商机『' . ($data['name'] ?? $businessData['name']) . '』，变更字段：';
             $logContent .=  Util::formatChangedFields($changed);
             // 写入日志

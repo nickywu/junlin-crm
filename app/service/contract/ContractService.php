@@ -9,6 +9,7 @@ use app\model\contract\ContractProduct;
 use app\model\customer\Customer;
 use app\model\business\Business;
 use app\model\contacts\Contacts;
+use app\model\product\Product;
 use core\exception\FailedException;
 use core\facade\Util;
 
@@ -35,7 +36,7 @@ class ContractService extends BaseService
             ->search()
             ->order('id', 'desc')
             ->append(['last_time_text', 'status_text'])
-            ->with(['ownerUser','orderUser', 'customer', 'business', 'contacts'])
+            ->with(['ownerUser', 'orderUser', 'customer', 'business', 'contacts'])
             ->paginate();
         return $data;
     }
@@ -133,34 +134,37 @@ class ContractService extends BaseService
      * @param array $data
      * @return bool
      */
-    public function update($id, array $data)
+    public function update(int $id, array $data): bool
     {
-        $contractData = $this->model->findOrFail($id)->toArray();
-        $changed = Util::getChangedFields($contractData, $data, ['product']);
-        [$result, $message] = $this->model->checkDataAuth($contractData['owner_user_id'], $contractData['name']);
-        if (!$result) throw new FailedException($message);
-        $product = $data['product'] ?? [];
-        $result = $this->model->updateBy($id, $data);
-        if (!empty($product)) {
-            foreach ($product as $key => $value) {
-                if (!empty($value['id'])) {
-                    unset($product[$key]['id']);
-                }
+        $this->startTrans();
+        try {
+            $contractData = $this->model->findOrFail($id)->toArray();
+            $changed = Util::getChangedFields($contractData, $data, ['product']);
+            [$result, $message] = $this->model->checkDataAuth($contractData['owner_user_id'], $contractData['name']);
+            if (!$result) throw new FailedException($message);
+            $product = $data['product'] ?? [];
+            $result = $this->model->updateBy($id, $data);
+            Product::syncRelatedRecords(ContractProduct::class, 'contract_id', $id, $product);
+            if ($result) {
+                $logContent = '更新合同『' . ($data['name'] ?? $contractData['name']) . '』，变更字段：';
+                $logContent .=  Util::formatChangedFields($changed);
+                // 写入日志
+                action_log('business', $id, '更新', $logContent);
             }
-            $contract = $this->model->find($id);
-            //删除删除
-            $contract->contractProduct()->where('contract_id', $id)->delete();
-            //关联新增
-            $contract->contractProduct()->saveAll($product);
+            $this->commit();
+            return true;
+        } catch (\Exception $e) {
+            $this->rollback();
+            throw $e;
         }
-        if ($result) {
-            $logContent = '更新合同『' . ($data['name'] ?? $contractData['name']) . '』，变更字段：';
-            $logContent .=  Util::formatChangedFields($changed);
-            // 写入日志
-            action_log('business', $id, '更新', $logContent);
-        }
-        return $result;
     }
+
+
+
+
+
+
+
 
 
     /**

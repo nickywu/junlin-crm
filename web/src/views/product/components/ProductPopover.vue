@@ -83,13 +83,12 @@ const rowSelection: ComputedRef<TableProps["rowSelection"]> = computed(() => {
       selectedRowKeys.value = keys;
     },
      onSelect: async (record, selected) => {
-      //await nextTick();
       if (selected) {
         selectedRow.value.push(record);
       } else {
-        selectedRow.value = selectedRow.value.filter(item => item.id !== record.id);
+        selectedRow.value = selectedRow.value.filter(item => item.product_id !== record.product_id);
       }
-      selectedRowKeys.value = selectedRow.value.map((item: Recordable) => item.id);
+      selectedRowKeys.value = selectedRow.value.map((item: Recordable) => item.product_id);
     },
   };
 });
@@ -98,6 +97,14 @@ const [register, { refresh, search }] = useTable({
   columns,
   size: "middle",
   listApi: getProductList,
+  afterFetch:(data: any[]) => {
+    return data.map(item => {
+      item.product_id = item.id
+      delete item.id
+      return item;
+    })
+  },
+  rowKey: "product_id",
   rowSelection: rowSelection,
   scroll: { x: 500, y: 300 },
   rootStyle: { padding: 0 },
@@ -120,14 +127,14 @@ watch(
   value => {
     if (value.length) {
       selectedRowKeys.value = value.map(item => item.product_id);
-      value.forEach(item => (item.id = item.product_id));
+      //value.forEach(item => (item.id = item.product_id));
       selectedRow.value = cloneDeep(value);
     }
   },
   { immediate: true }
 );
 
-// 方法
+// 取消
 const cancel = () => {
   visible.value = false;
 };
@@ -140,7 +147,7 @@ const handleSubmit = () => {
 
 const remove = (key: string) => {
   selectedRowKeys.value = selectedRowKeys.value.filter(item => item !== key);
-  selectedRow.value = selectedRow.value.filter(item => item.id !== key);
+  selectedRow.value = selectedRow.value.filter(item => item.product_id !== key);
 };
 
 defineExpose({
