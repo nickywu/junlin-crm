@@ -3,6 +3,7 @@
 namespace app\model\contract;
 
 use core\base\BaseModel;
+use app\model\system\User;
 
 class WorkOrderNode extends BaseModel
 {
@@ -22,6 +23,16 @@ class WorkOrderNode extends BaseModel
     public function workOrder()
     {
         return $this->belongsTo(WorkOrder::class, 'work_order_id', 'id')->bind(['work_order_no', 'work_order_title' => 'title']);
+    }
+
+    /**
+     * 关联节点负责人
+     *
+     * @return \think\model\relation\BelongsTo
+     */
+    public function ownerUser()
+    {
+        return $this->belongsTo(User::class, 'owner_user_id', 'id')->bind(['owner_user_name' => 'realname']);
     }
 
     /**

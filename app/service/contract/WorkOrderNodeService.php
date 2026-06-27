@@ -27,7 +27,7 @@ class WorkOrderNodeService extends BaseService
     {
         return $this->model
             ->search()
-            ->with(['workOrder'])
+            ->with(['workOrder', 'ownerUser'])
             ->append(['status_text'])
             ->order('work_order_id', 'asc')
             ->order('sort', 'asc')

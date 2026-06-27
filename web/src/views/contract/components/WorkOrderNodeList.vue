@@ -56,7 +56,7 @@ const columns = [
   },
   {
     title: "负责人",
-    dataIndex: "owner_user_id",
+    dataIndex: "owner_user_name",
     width: 100
   },
   {
