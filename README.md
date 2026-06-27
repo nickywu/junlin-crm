@@ -63,7 +63,7 @@
 ### 后端安装
 1. 拉取代码 
 ```sh
-git clone https://gitee.com/fantasyc/speedcrm.git
+git clone https://github.com/nickywu/junlin-crm.git
 ```
 
 2. 安装依赖 
