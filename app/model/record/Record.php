@@ -29,14 +29,20 @@ class Record extends BaseModel
     const BUSINESS_TYPE = 4; // 商机
     const CONTRACT_TYPE = 5; // 合同
     const PRODUCT_TYPE  = 6; // 产品
-
+    const ENTERPRISE_TYPE = 7; // 企业
+    const COLLECT_SINGLE_TYPE = 8; // 单次服务收款
+    const COLLECT_LONG_TYPE = 9; // 长期服务收款
+    
     public static array $record_types = [
         'clues'    => self::CLUE_TYPE,
         'customer' => self::CUSTOMER_TYPE,
         'contacts' => self::CONTACT_TYPE,
         'business' => self::BUSINESS_TYPE,
         'contract' => self::CONTRACT_TYPE,
-        'product' =>  self::PRODUCT_TYPE,
+        'product'  => self::PRODUCT_TYPE,
+        'enterprise' => self::ENTERPRISE_TYPE,
+        'collect_single' => self::COLLECT_SINGLE_TYPE,
+        'collect_long' => self::COLLECT_LONG_TYPE,
     ];
 
     public static function getTypeValue(string $label): ?int

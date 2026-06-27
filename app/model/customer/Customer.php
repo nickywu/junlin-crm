@@ -75,6 +75,27 @@ class Customer extends BaseModel
         return $dict[$data['is_receive']] ?? '-';
     }
 
+    //省份名称
+    public function getProvinceNameAttr($value, $data)
+    {
+        if (empty($data['province_id'])) return '-';
+        return \app\model\system\Region::where('id', $data['province_id'])->value('name') ?? '-';
+    }
+
+    //城市名称
+    public function getCityNameAttr($value, $data)
+    {
+        if (empty($data['city_id'])) return '-';
+        return \app\model\system\Region::where('id', $data['city_id'])->value('name') ?? '-';
+    }
+
+    //区县名称
+    public function getDistrictNameAttr($value, $data)
+    {
+        if (empty($data['district_id'])) return '-';
+        return \app\model\system\Region::where('id', $data['district_id'])->value('name') ?? '-';
+    }
+
     //定义用户相对关联
     public function user()
     {

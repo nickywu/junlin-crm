@@ -108,6 +108,12 @@ class Contract extends BaseModel
         $query->where('order_user_id', $value);
     }
 
+    //销售主管
+    public function searchSalesManagerIdAttr($query, $value)
+    {
+        $query->where('sales_manager_id', $value);
+    }
+
     //定义客公司签约人相对关联
     public function orderUser()
     {
@@ -118,6 +124,18 @@ class Contract extends BaseModel
     public function ownerUser()
     {
         return $this->belongsTo(User::class, 'owner_user_id', 'id')->field(['id,realname']);
+    }
+
+    //定义销售主管相对关联
+    public function salesManager()
+    {
+        return $this->belongsTo(User::class, 'sales_manager_id', 'id')->bind(['sales_manager_name' => 'realname']);
+    }
+
+    //定义工单主管相对关联
+    public function workManager()
+    {
+        return $this->belongsTo(User::class, 'work_manager_id', 'id')->bind(['work_manager_name' => 'realname']);
     }
 
 
@@ -175,5 +193,10 @@ class Contract extends BaseModel
         $model->set('end_time', strtotime($model->end_time));
         //签约日期
         $model->set('signing_time', strtotime($model->signing_time));
+        //产品总数：根据product数据自动计算
+        $product = $model->getData('product');
+        if (!empty($product) && is_array($product)) {
+            $model->set('product_num', count($product));
+        }
     }
 }

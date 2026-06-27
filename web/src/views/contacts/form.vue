@@ -38,7 +38,7 @@
       placeholder="请选择是否决策人"
     />
     <s-input
-      label="地址"
+      label="详细地址"
       class="col-span-2"
       name="addr"
       v-model="form.addr"

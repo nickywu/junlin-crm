@@ -3,7 +3,7 @@
  */
 
 export default {
-  appName: "SpeedCRM", //应用名称
+  appName: "JunlinCRM", //应用名称
   version: "1.0.0", //版本号
   primaryColor: "#4073fa", // 主色系
   theme: "light", // 菜单主题 dark | light | real-dark
@@ -22,7 +22,7 @@ export default {
   setPosition: "header", //主题设置位置 header | fixed
   borderRadius: 6, //圆角
   copyright: {
-    company: 'SpeedCRM Team',
+    company: 'JunlinCRM Team',
     link: '',
     icp: ''
   }

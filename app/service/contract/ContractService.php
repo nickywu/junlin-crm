@@ -36,7 +36,7 @@ class ContractService extends BaseService
             ->search()
             ->order('id', 'desc')
             ->append(['last_time_text', 'status_text'])
-            ->with(['ownerUser', 'orderUser', 'customer', 'business', 'contacts'])
+            ->with(['ownerUser', 'orderUser', 'customer', 'business', 'contacts', 'salesManager', 'workManager'])
             ->paginate();
         return $data;
     }
@@ -193,7 +193,7 @@ class ContractService extends BaseService
     public function read($id)
     {
         $data = $this->model
-            ->with(['orderUser', 'customer', 'business', 'contacts'])
+            ->with(['orderUser', 'customer', 'business', 'contacts', 'salesManager', 'workManager'])
             ->findOrFail($id)
             ->append(['last_time_text', 'status_text']);
         $data->create_user_name = User::getRealNameById($data->create_user_id);

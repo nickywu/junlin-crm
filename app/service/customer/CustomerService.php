@@ -26,7 +26,7 @@ class CustomerService extends BaseService
      */
     public function getList()
     {
-        $addFiled = ['source_text', 'industry_text', 'level_text', 'last_time_text', 'deal_status_tag'];
+        $addFiled = ['source_text', 'industry_text', 'level_text', 'last_time_text', 'deal_status_tag', 'province_name', 'city_name', 'district_name'];
         $data =  $this->model->dataRange('owner_user_id')->search()->order('id', 'desc')->append($addFiled)->with(['user', 'creator'])->paginate();
         return $data;
     }
@@ -98,7 +98,7 @@ class CustomerService extends BaseService
      */
     public function read($id)
     {
-        $addFiled = ['source_text', 'industry_text', 'level_text', 'last_time_text', 'deal_status_text'];
+        $addFiled = ['source_text', 'industry_text', 'level_text', 'last_time_text', 'deal_status_text', 'province_name', 'city_name', 'district_name'];
         $data = $this->model->with(['user'])->append($addFiled)->findOrFail($id);
         [$result, $message] = $this->model->checkDataAuth($data['owner_user_id'], $data['name']);
         if (!$result) throw new FailedException($message);

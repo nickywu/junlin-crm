@@ -56,7 +56,15 @@ import { ChangeOwnerUser } from "../components";
 import { TableColumnProps } from "@/components/Table";
 const [registerChangeUser, { openModal: openChangeUser }] = useModal();
 const [registerDrawer, { openDrawer, getVisible }] = useDrawer();
-const { options } = useDict(["contract_status"]);
+// 合同状态选项：草稿(0)、待审核(1)、待付款(2)、办理中(3)、已完结(4)、已取消(5)
+const statusOptions = [
+  { label: "草稿", value: 0 },
+  { label: "待审核", value: 1 },
+  { label: "待付款", value: 2 },
+  { label: "办理中", value: 3 },
+  { label: "已完结", value: 4 },
+  { label: "已取消", value: 5 }
+];
 const currentId = ref("");
 const title = ref("");
 const detailRef = ref();
@@ -140,7 +148,7 @@ const searchForm = ref([
     component: "Select",
     props: {
       placeholder: "请选择合同状态",
-      options: toRef(options, "contract_status")
+      options: statusOptions
     }
   },
   {

@@ -15,6 +15,8 @@
       </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column?.dataIndex === 'action'">
+          <a @click="openStepManage(record)">管理步骤</a>
+          <a-divider type="vertical" />
           <a @click="openModal(true, record.id)">修改</a>
           <a-divider type="vertical" />
           <s-confirm-button label="删除" title="确认要删除吗?" @confirm="handleDelete(record.id)" />
@@ -36,6 +38,9 @@
 import { getProductList, destroy } from "@/api/product";
 import productForm from "./form.vue";
 import productDetail from "./detail.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const { options } = useDict(["product_category", "product_unit"]);
 const currentId = ref("");
 const detailRef = ref();
@@ -128,6 +133,17 @@ const [register, { search, handleDelete, selectRowKeysLength }] = useTable({
   deleteApi: destroy,
   selection: true
 });
+/** 跳转到步骤管理页面 */
+const openStepManage = (record: Recordable) => {
+  router.push({
+    path: "/product/step",
+    query: {
+      product_id: record.id,
+      product_name: record.name
+    }
+  });
+};
+
 const handleSuccess = () => {
   if (getVisible.value) {
     detailRef.value.refresh();

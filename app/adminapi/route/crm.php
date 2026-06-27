@@ -46,6 +46,15 @@ Route::group(function () {
     Route::group('product', function () {
         //删除产品
         Route::post('delete', 'product.product/delete');
+        //删除套餐子业务模板
+        Route::post('packageItem/delete', 'product.productPackageItem/delete');
+    });
+
+
+    //产品服务步骤模块
+    Route::group('step', function () {
+        //删除步骤
+        Route::post('delete', 'product.productStep/delete');
     });
 
 
@@ -55,8 +64,32 @@ Route::group(function () {
         Route::post('changeOwnerUser', 'contract.contract/changeOwnerUser');
         //合同产品列表
         Route::get('getProduct', 'contract.contract/getProduct');
+        //重新生成服务周期和工单
+        Route::post('generateWorkflow', 'contract.contract/generateWorkflow');
         //合同删除
         Route::post('delete', 'contract.contract/delete');
+    });
+
+
+    //收款模块
+    Route::group('collect', function () {
+        //单次服务收款
+        Route::group('single', function () {
+            Route::get('getContractProducts', 'collect.singleCollect/getContractProducts');
+            Route::post('delete', 'collect.singleCollect/delete');
+        });
+        //长期服务收款
+        Route::group('long', function () {
+            Route::get('getContractProducts', 'collect.longCollect/getContractProducts');
+            Route::post('delete', 'collect.longCollect/delete');
+        });
+    });
+
+
+    //企业模块
+    Route::group('enterprise', function () {
+        //删除企业
+        Route::post('delete', 'enterprise.enterprise/delete');
     });
 
 
@@ -93,11 +126,27 @@ Route::group(function () {
         Route::resource('contacts', 'contacts.contacts');
         //产品
         Route::resource('product', 'product.product');
+        //产品套餐子业务模板
+        Route::resource('product/packageItem', 'product.productPackageItem');
         //合同
         Route::resource('contract', 'contract.contract');
+        //合同服务周期
+        Route::resource('contract/servicePeriod', 'contract.servicePeriod')->only(['index', 'update']);
+        //合同工单
+        Route::resource('contract/workOrder', 'contract.workOrder')->only(['index', 'update']);
+        //合同工单节点
+        Route::resource('contract/workOrderNode', 'contract.workOrderNode')->only(['index', 'update']);
         //操作日志
         Route::resource('action_log', 'action_log.actionLog');
         //商机
         Route::resource('business', 'business.business');
+        //企业
+        Route::resource('enterprise', 'enterprise.enterprise');
+        //产品服务步骤
+        Route::resource('step', 'product.productStep');
+        //单次服务收款
+        Route::resource('collect/single', 'collect.singleCollect');
+        //长期服务收款
+        Route::resource('collect/long', 'collect.longCollect');
     });
 })->middleware('auth');

@@ -14,6 +14,7 @@ class ContractValidate extends BaseValidate
         'customer_id' => 'require',
         'order_user_id' => 'require',
         'contacts_id' => 'require|checkContacts',
+        'sales_manager_id' => 'require',
         'business_id' => 'checkBusiness',
         'start_time' => 'require',
         'end_time' => 'require|checkTime',
@@ -37,6 +38,7 @@ class ContractValidate extends BaseValidate
         'customer_id' => '客户',
         'contacts_id' => '客户签约人',
         'order_user_id' => '公司签约人',
+        'sales_manager_id' => '销售主管',
         'start_time' => '合同开始时间',
         'end_time' => '合同到期时间',
         'signing_time' => '合同签约时间'

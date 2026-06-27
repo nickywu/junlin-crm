@@ -39,7 +39,7 @@ CREATE TABLE `speed_auth_access`  (
   `role_id` int(11) NOT NULL DEFAULT 0 COMMENT '角色id',
   `menu_id` int(11) NOT NULL DEFAULT 0 COMMENT '菜单id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6114 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限菜单关联表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6169 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '权限菜单关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of speed_auth_access
@@ -121,6 +121,16 @@ INSERT INTO `speed_auth_access` VALUES (5783, 1, 305);
 INSERT INTO `speed_auth_access` VALUES (5784, 1, 306);
 INSERT INTO `speed_auth_access` VALUES (5785, 1, 307);
 INSERT INTO `speed_auth_access` VALUES (5786, 1, 308);
+INSERT INTO `speed_auth_access` VALUES (5787, 1, 309);
+INSERT INTO `speed_auth_access` VALUES (5788, 1, 310);
+INSERT INTO `speed_auth_access` VALUES (5789, 1, 311);
+INSERT INTO `speed_auth_access` VALUES (5790, 1, 312);
+INSERT INTO `speed_auth_access` VALUES (5791, 1, 313);
+INSERT INTO `speed_auth_access` VALUES (5792, 1, 314);
+INSERT INTO `speed_auth_access` VALUES (5793, 1, 315);
+INSERT INTO `speed_auth_access` VALUES (5794, 1, 316);
+INSERT INTO `speed_auth_access` VALUES (5795, 1, 317);
+INSERT INTO `speed_auth_access` VALUES (5796, 1, 318);
 INSERT INTO `speed_auth_access` VALUES (5964, 5, 242);
 INSERT INTO `speed_auth_access` VALUES (5965, 5, 241);
 INSERT INTO `speed_auth_access` VALUES (5966, 5, 240);
@@ -158,6 +168,11 @@ INSERT INTO `speed_auth_access` VALUES (5997, 5, 238);
 INSERT INTO `speed_auth_access` VALUES (5998, 5, 258);
 INSERT INTO `speed_auth_access` VALUES (5999, 5, 274);
 INSERT INTO `speed_auth_access` VALUES (6000, 5, 285);
+INSERT INTO `speed_auth_access` VALUES (6114, 5, 314);
+INSERT INTO `speed_auth_access` VALUES (6115, 5, 315);
+INSERT INTO `speed_auth_access` VALUES (6116, 5, 316);
+INSERT INTO `speed_auth_access` VALUES (6117, 5, 317);
+INSERT INTO `speed_auth_access` VALUES (6118, 5, 318);
 INSERT INTO `speed_auth_access` VALUES (6001, 5, 290);
 INSERT INTO `speed_auth_access` VALUES (6002, 5, 295);
 INSERT INTO `speed_auth_access` VALUES (6003, 3, 242);
@@ -199,6 +214,11 @@ INSERT INTO `speed_auth_access` VALUES (6038, 3, 238);
 INSERT INTO `speed_auth_access` VALUES (6039, 3, 258);
 INSERT INTO `speed_auth_access` VALUES (6040, 3, 274);
 INSERT INTO `speed_auth_access` VALUES (6041, 3, 285);
+INSERT INTO `speed_auth_access` VALUES (6119, 3, 314);
+INSERT INTO `speed_auth_access` VALUES (6120, 3, 315);
+INSERT INTO `speed_auth_access` VALUES (6121, 3, 316);
+INSERT INTO `speed_auth_access` VALUES (6122, 3, 317);
+INSERT INTO `speed_auth_access` VALUES (6123, 3, 318);
 INSERT INTO `speed_auth_access` VALUES (6042, 3, 290);
 INSERT INTO `speed_auth_access` VALUES (6043, 3, 295);
 INSERT INTO `speed_auth_access` VALUES (6044, 3, 105);
@@ -249,6 +269,51 @@ INSERT INTO `speed_auth_access` VALUES (6088, 2, 238);
 INSERT INTO `speed_auth_access` VALUES (6089, 2, 258);
 INSERT INTO `speed_auth_access` VALUES (6090, 2, 274);
 INSERT INTO `speed_auth_access` VALUES (6091, 2, 285);
+INSERT INTO `speed_auth_access` VALUES (6124, 2, 314);
+INSERT INTO `speed_auth_access` VALUES (6125, 2, 315);
+INSERT INTO `speed_auth_access` VALUES (6126, 2, 316);
+INSERT INTO `speed_auth_access` VALUES (6127, 2, 317);
+INSERT INTO `speed_auth_access` VALUES (6128, 2, 318);
+INSERT INTO `speed_auth_access` VALUES (6129, 1, 321);
+INSERT INTO `speed_auth_access` VALUES (6130, 1, 322);
+INSERT INTO `speed_auth_access` VALUES (6131, 1, 323);
+INSERT INTO `speed_auth_access` VALUES (6132, 1, 324);
+INSERT INTO `speed_auth_access` VALUES (6133, 1, 325);
+INSERT INTO `speed_auth_access` VALUES (6134, 1, 326);
+INSERT INTO `speed_auth_access` VALUES (6135, 1, 327);
+INSERT INTO `speed_auth_access` VALUES (6136, 1, 328);
+INSERT INTO `speed_auth_access` VALUES (6137, 1, 329);
+INSERT INTO `speed_auth_access` VALUES (6138, 1, 330);
+INSERT INTO `speed_auth_access` VALUES (6139, 5, 321);
+INSERT INTO `speed_auth_access` VALUES (6140, 5, 322);
+INSERT INTO `speed_auth_access` VALUES (6141, 5, 323);
+INSERT INTO `speed_auth_access` VALUES (6142, 5, 324);
+INSERT INTO `speed_auth_access` VALUES (6143, 5, 325);
+INSERT INTO `speed_auth_access` VALUES (6144, 5, 326);
+INSERT INTO `speed_auth_access` VALUES (6145, 5, 327);
+INSERT INTO `speed_auth_access` VALUES (6146, 5, 328);
+INSERT INTO `speed_auth_access` VALUES (6147, 5, 329);
+INSERT INTO `speed_auth_access` VALUES (6148, 5, 330);
+INSERT INTO `speed_auth_access` VALUES (6149, 3, 321);
+INSERT INTO `speed_auth_access` VALUES (6150, 3, 322);
+INSERT INTO `speed_auth_access` VALUES (6151, 3, 323);
+INSERT INTO `speed_auth_access` VALUES (6152, 3, 324);
+INSERT INTO `speed_auth_access` VALUES (6153, 3, 325);
+INSERT INTO `speed_auth_access` VALUES (6154, 3, 326);
+INSERT INTO `speed_auth_access` VALUES (6155, 3, 327);
+INSERT INTO `speed_auth_access` VALUES (6156, 3, 328);
+INSERT INTO `speed_auth_access` VALUES (6157, 3, 329);
+INSERT INTO `speed_auth_access` VALUES (6158, 3, 330);
+INSERT INTO `speed_auth_access` VALUES (6159, 2, 321);
+INSERT INTO `speed_auth_access` VALUES (6160, 2, 322);
+INSERT INTO `speed_auth_access` VALUES (6161, 2, 323);
+INSERT INTO `speed_auth_access` VALUES (6162, 2, 324);
+INSERT INTO `speed_auth_access` VALUES (6163, 2, 325);
+INSERT INTO `speed_auth_access` VALUES (6164, 2, 326);
+INSERT INTO `speed_auth_access` VALUES (6165, 2, 327);
+INSERT INTO `speed_auth_access` VALUES (6166, 2, 328);
+INSERT INTO `speed_auth_access` VALUES (6167, 2, 329);
+INSERT INTO `speed_auth_access` VALUES (6168, 2, 330);
 INSERT INTO `speed_auth_access` VALUES (6092, 2, 290);
 INSERT INTO `speed_auth_access` VALUES (6093, 2, 295);
 INSERT INTO `speed_auth_access` VALUES (6094, 2, 81);
@@ -455,11 +520,14 @@ CREATE TABLE `speed_contract`  (
   `signing_time` int(11) NOT NULL COMMENT '签约时间',
   `start_time` int(11) NOT NULL COMMENT '合同开始时间',
   `end_time` int(11) NOT NULL COMMENT '合同结束时间',
-  `status` tinyint(1) NOT NULL COMMENT '合同状态（0草稿、1通过、2无效）',
+  `status` tinyint(1) NOT NULL COMMENT '合同状态（0草稿,1待审核,2待付款,3办理中,4已完结,5已取消）',
   `customer_id` int(11) NOT NULL COMMENT '客户id',
   `owner_user_id` int(11) NOT NULL COMMENT '负责人id',
   `order_user_id` int(11) NOT NULL COMMENT '公司签约人',
   `contacts_id` int(11) NOT NULL COMMENT '客户签约人（联系人id）',
+  `sales_manager_id` int(11) NOT NULL DEFAULT 0 COMMENT '销售主管id',
+  `work_manager_id` int(11) DEFAULT NULL COMMENT '工单主管ID',
+  `product_num` tinyint(2) DEFAULT 1 COMMENT '产品总数',
   `money` decimal(10, 2) NOT NULL COMMENT '合同金额',
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '合同备注',
   `last_record` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '最后跟进记录',
@@ -503,6 +571,53 @@ CREATE TABLE `speed_contract_product`  (
 INSERT INTO `speed_contract_product` VALUES (24, 15, 25, 99.00, 99.00, 1, 0.00, 2, 99.00, 1);
 
 -- ----------------------------
+-- Table structure for speed_collect_single
+-- ----------------------------
+DROP TABLE IF EXISTS `speed_collect_single`;
+CREATE TABLE `speed_collect_single`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contract_product_id` int(11) NOT NULL COMMENT '合同关联产品ID',
+  `contract_id` int(11) NOT NULL COMMENT '关联合同ID',
+  `customer_id` int(11) NOT NULL COMMENT '关联客户ID',
+  `account` varchar(100) NOT NULL DEFAULT '' COMMENT '收款账号',
+  `voucher` varchar(255) NOT NULL DEFAULT '' COMMENT '收款凭证',
+  `collect_time` int(11) NOT NULL COMMENT '收款时间',
+  `amount` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '收款金额',
+  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注',
+  `delete_time` int(11) NOT NULL DEFAULT 0 COMMENT '删除时间',
+  `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `update_time` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `create_user_id` int(11) NOT NULL COMMENT '创建人ID',
+  `owner_user_id` int(11) NOT NULL DEFAULT 0 COMMENT '负责人ID',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '单次服务收款记录' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Table structure for speed_collect_long
+-- ----------------------------
+DROP TABLE IF EXISTS `speed_collect_long`;
+CREATE TABLE `speed_collect_long`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contract_product_id` int(11) NOT NULL COMMENT '合同关联产品ID',
+  `contract_id` int(11) NOT NULL COMMENT '关联合同ID',
+  `customer_id` int(11) NOT NULL COMMENT '关联客户ID',
+  `account` varchar(100) NOT NULL DEFAULT '' COMMENT '收款账号',
+  `voucher` varchar(255) NOT NULL DEFAULT '' COMMENT '收款凭证',
+  `collect_time` int(11) NOT NULL COMMENT '收款时间',
+  `amount` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '收款金额',
+  `monthly_fee` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '月服务费',
+  `collect_months` int(11) NOT NULL DEFAULT 1 COMMENT '收款月数',
+  `pay_type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '付款类型（1年收,2半年,3季度,4月度）',
+  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注',
+  `delete_time` int(11) NOT NULL DEFAULT 0 COMMENT '删除时间',
+  `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `update_time` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `create_user_id` int(11) NOT NULL COMMENT '创建人ID',
+  `owner_user_id` int(11) NOT NULL DEFAULT 0 COMMENT '负责人ID',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '长期服务收款记录' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
 -- Table structure for speed_customer
 -- ----------------------------
 DROP TABLE IF EXISTS `speed_customer`;
@@ -532,6 +647,10 @@ CREATE TABLE `speed_customer`  (
   `receive_time` int(11) NOT NULL DEFAULT 0 COMMENT '分配时间/领取时间',
   `deal_time` int(11) NULL DEFAULT NULL COMMENT '成交时间',
   `next_time` int(11) NULL DEFAULT NULL COMMENT '下次联系时间',
+  `wechat` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '微信号',
+  `province_id` int(11) NOT NULL DEFAULT 0 COMMENT '省份ID',
+  `city_id` int(11) NOT NULL DEFAULT 0 COMMENT '城市ID',
+  `district_id` int(11) NOT NULL DEFAULT 0 COMMENT '区县ID',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `create_user_id`(`create_user_id`) USING BTREE COMMENT '创建人索引',
   INDEX `respon_user_id`(`owner_user_id`) USING BTREE COMMENT '负责人索引'
@@ -633,8 +752,11 @@ INSERT INTO `speed_dict` VALUES (573, 'product_unit', '件', '1', 8, '', '', 'te
 INSERT INTO `speed_dict` VALUES (574, 'product_unit', '个', '2', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (575, 'dict_type', '合同状态', 'contract_status', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (576, 'contract_status', '草稿', '0', 8, '', '', 'text', 0, 1);
-INSERT INTO `speed_dict` VALUES (577, 'contract_status', '通过', '1', 8, '', '', 'text', 0, 1);
-INSERT INTO `speed_dict` VALUES (579, 'contract_status', '无效', '2', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (577, 'contract_status', '待审核', '1', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (578, 'contract_status', '待付款', '2', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (579, 'contract_status', '办理中', '3', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (580, 'contract_status', '已完结', '4', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (592, 'contract_status', '已取消', '5', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (581, 'source', '个人资源', '4', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (582, 'source', '公司资源', '5', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (583, 'source', '线上注册', '6', 8, '', '', 'text', 0, 1);
@@ -644,6 +766,16 @@ INSERT INTO `speed_dict` VALUES (588, 'level', '潜在客户', '4', 8, '', '', '
 INSERT INTO `speed_dict` VALUES (589, 'product_unit', '款', '3', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (590, 'product_unit', '只', '4', 8, '', '', 'text', 0, 1);
 INSERT INTO `speed_dict` VALUES (591, 'product_unit', '把', '6', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (593, 'dict_type', '收款账号', 'collect_account', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (594, 'collect_account', '对公账户', '1', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (595, 'collect_account', '支付宝', '2', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (596, 'collect_account', '微信', '3', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (597, 'collect_account', '银行转账', '4', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (598, 'dict_type', '付款类型', 'pay_type', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (599, 'pay_type', '年收', '1', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (600, 'pay_type', '半年', '2', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (601, 'pay_type', '季度', '3', 8, '', '', 'text', 0, 1);
+INSERT INTO `speed_dict` VALUES (602, 'pay_type', '月度', '4', 8, '', '', 'text', 0, 1);
 
 -- ----------------------------
 -- Table structure for speed_file
@@ -828,6 +960,26 @@ INSERT INTO `speed_menu` VALUES (305, 290, '', '', 0, '更换负责人', '', 'bu
 INSERT INTO `speed_menu` VALUES (306, 290, '', '', 0, '推进商机', '', 'business:business:changeBusinessStage', 1, 2, 0, '', 0, '');
 INSERT INTO `speed_menu` VALUES (307, 290, '', '', 0, '结束商机', '', 'business:business:endStage', 1, 2, 0, '', 0, '');
 INSERT INTO `speed_menu` VALUES (308, 295, '', '', 0, '更换负责人', '', 'contract:contract:changeOwnerUser', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (309, 0, 'enterprise', 'enterprise/index', 0, '企业管理', 'bank-outlined', '', 8, 0, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (310, 309, '', '', 0, '列表', '', 'enterprise:enterprise:index', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (311, 309, '', '', 0, '添加', '', 'enterprise:enterprise:save', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (312, 309, '', '', 0, '编辑', '', 'enterprise:enterprise:update', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (313, 309, '', '', 0, '删除', '', 'enterprise:enterprise:delete', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (314, 285, 'step', 'product/step/index', 1, '步骤管理', 'ordered-list-outlined', '', 0, 0, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (315, 314, '', '', 0, '列表', '', 'product:step:index', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (316, 314, '', '', 0, '添加', '', 'product:step:save', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (317, 314, '', '', 0, '编辑', '', 'product:step:update', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (318, 314, '', '', 0, '删除', '', 'product:step:delete', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (321, 295, 'single', 'collect/single/index', 0, '单次服务收款', 'dollar-outlined', '', 5, 1, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (322, 321, '', '', 0, '列表', '', 'collect:single:index', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (323, 321, '', '', 0, '添加', '', 'collect:single:save', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (324, 321, '', '', 0, '编辑', '', 'collect:single:update', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (325, 321, '', '', 0, '删除', '', 'collect:single:delete', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (326, 295, 'long', 'collect/long/index', 0, '长期服务收款', 'dollar-circle-outlined', '', 6, 1, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (327, 326, '', '', 0, '列表', '', 'collect:long:index', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (328, 326, '', '', 0, '添加', '', 'collect:long:save', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (329, 326, '', '', 0, '编辑', '', 'collect:long:update', 1, 2, 0, '', 0, '');
+INSERT INTO `speed_menu` VALUES (330, 326, '', '', 0, '删除', '', 'collect:long:delete', 1, 2, 0, '', 0, '');
 
 -- ----------------------------
 -- Table structure for speed_operate_log
@@ -857,6 +1009,15 @@ CREATE TABLE `speed_product`  (
   `price` decimal(10, 2) NOT NULL COMMENT '产品价格',
   `unit` tinyint(1) NOT NULL COMMENT '产品单位',
   `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '产品编码',
+  `service_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '服务类型（single单次、long_term长期）',
+  `internal_cost` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '内部成本',
+  `fixed_cost` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '固定成本',
+  `commission_cost` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '佣金成本',
+  `other_cost` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '其他成本',
+  `sales_commission` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '销售提成',
+  `sales_manager_commission` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '销售主管提成',
+  `work_order_manager_bonus` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '工单主管奖金',
+  `service_period` int(11) NOT NULL DEFAULT 0 COMMENT '服务周期（月）',
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '产品描述',
   `cover_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '产品主图',
   `detail_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '产品详情图',
@@ -870,7 +1031,26 @@ CREATE TABLE `speed_product`  (
 -- ----------------------------
 -- Records of speed_product
 -- ----------------------------
-INSERT INTO `speed_product` VALUES (25, '产品示例', 1, 99.00, 2, 'test', '', '', '', 1, 0, 1754449970, 1);
+INSERT INTO `speed_product` VALUES (25, '产品示例', 1, 99.00, 2, 'test', '', 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, '', '', '', 1, 0, 1754449970, 1);
+
+-- ----------------------------
+-- Table structure for speed_product_step
+-- ----------------------------
+DROP TABLE IF EXISTS `speed_product_step`;
+CREATE TABLE `speed_product_step`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '步骤ID',
+  `product_id` int(11) NOT NULL COMMENT '关联产品ID',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '步骤名称',
+  `attention` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '注意事项',
+  `next_step_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '下一步骤名称',
+  `sort` int(11) NOT NULL DEFAULT 0 COMMENT '序号',
+  `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `update_time` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `delete_time` int(11) NOT NULL DEFAULT 0 COMMENT '删除时间',
+  `create_user_id` int(11) NOT NULL DEFAULT 0 COMMENT '创建人ID',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `product_id`(`product_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '产品服务步骤表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for speed_record
@@ -1018,4 +1198,80 @@ INSERT INTO `speed_user_role` VALUES (158, 21, 2);
 INSERT INTO `speed_user_role` VALUES (159, 21, 3);
 INSERT INTO `speed_user_role` VALUES (160, 2, 1);
 
+-- ----------------------------
+-- Table structure for speed_region
+-- ----------------------------
+DROP TABLE IF EXISTS `speed_region`;
+CREATE TABLE `speed_region`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '地区ID',
+  `parent_id` int(11) NOT NULL DEFAULT 0 COMMENT '父级地区ID',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '地区名称',
+  `level` tinyint(1) NOT NULL DEFAULT 1 COMMENT '地区级别（1省份、2城市、3区县）',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `parent_id`(`parent_id`) USING BTREE,
+  INDEX `level`(`level`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '省市区地区表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of speed_region（示例数据，可根据需要导入完整的中国省市区数据）
+-- ----------------------------
+INSERT INTO `speed_region` VALUES (1, 0, '北京市', 1);
+INSERT INTO `speed_region` VALUES (2, 0, '上海市', 1);
+INSERT INTO `speed_region` VALUES (3, 0, '广东省', 1);
+INSERT INTO `speed_region` VALUES (4, 0, '浙江省', 1);
+INSERT INTO `speed_region` VALUES (5, 0, '江苏省', 1);
+INSERT INTO `speed_region` VALUES (6, 1, '东城区', 2);
+INSERT INTO `speed_region` VALUES (7, 1, '西城区', 2);
+INSERT INTO `speed_region` VALUES (8, 2, '黄浦区', 2);
+INSERT INTO `speed_region` VALUES (9, 2, '徐汇区', 2);
+INSERT INTO `speed_region` VALUES (10, 3, '广州市', 2);
+INSERT INTO `speed_region` VALUES (11, 3, '深圳市', 2);
+INSERT INTO `speed_region` VALUES (12, 3, '珠海市', 2);
+INSERT INTO `speed_region` VALUES (13, 4, '杭州市', 2);
+INSERT INTO `speed_region` VALUES (14, 4, '宁波市', 2);
+INSERT INTO `speed_region` VALUES (15, 5, '南京市', 2);
+INSERT INTO `speed_region` VALUES (16, 5, '苏州市', 2);
+INSERT INTO `speed_region` VALUES (17, 10, '天河区', 3);
+INSERT INTO `speed_region` VALUES (18, 10, '海珠区', 3);
+INSERT INTO `speed_region` VALUES (19, 11, '南山区', 3);
+INSERT INTO `speed_region` VALUES (20, 11, '福田区', 3);
+INSERT INTO `speed_region` VALUES (21, 12, '香洲区', 3);
+INSERT INTO `speed_region` VALUES (22, 13, '西湖区', 3);
+INSERT INTO `speed_region` VALUES (23, 13, '拱墅区', 3);
+INSERT INTO `speed_region` VALUES (24, 14, '海曙区', 3);
+INSERT INTO `speed_region` VALUES (25, 15, '玄武区', 3);
+INSERT INTO `speed_region` VALUES (26, 16, '姑苏区', 3);
+INSERT INTO `speed_region` VALUES (27, 6, '景山街道', 3);
+INSERT INTO `speed_region` VALUES (28, 7, '金融街街道', 3);
+INSERT INTO `speed_region` VALUES (29, 8, '南京东路街道', 3);
+INSERT INTO `speed_region` VALUES (30, 9, '徐家汇街道', 3);
+
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------
+-- Table structure for speed_enterprise
+-- ----------------------------
+DROP TABLE IF EXISTS `speed_enterprise`;
+CREATE TABLE `speed_enterprise`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '企业ID',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '企业名称',
+  `customer_id` int(11) NOT NULL DEFAULT 0 COMMENT '关联客户ID',
+  `legal_person` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '法定代表人',
+  `tax_nature` tinyint(1) NOT NULL DEFAULT 0 COMMENT '纳税性质（0:小规模纳税人 1:一般纳税人）',
+  `contact_person` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '联系人',
+  `contact_phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '联系电话',
+  `contact_email` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '联系邮箱',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '企业地址',
+  `business_scope` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '经营范围',
+  `registered_capital` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '注册资本',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '备注',
+  `create_user_id` int(11) NOT NULL DEFAULT 0 COMMENT '创建人ID',
+  `owner_user_id` int(11) NOT NULL DEFAULT 0 COMMENT '负责人ID',
+  `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `update_time` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
+  `delete_time` int(11) NOT NULL DEFAULT 0 COMMENT '删除时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `customer_id`(`customer_id`) USING BTREE,
+  INDEX `create_user_id`(`create_user_id`) USING BTREE,
+  INDEX `owner_user_id`(`owner_user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '企业信息表' ROW_FORMAT = DYNAMIC;

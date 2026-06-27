@@ -93,6 +93,14 @@ Route::group(function () {
         Route::post('attachment', 'system.file/uploadAttachment');
     });
 
+    //省市区地区查询
+    Route::group('region', function () {
+        //获取省份列表
+        Route::get('getProvince', 'system.Region/getProvince');
+        //根据父级ID获取子地区
+        Route::get('getChildren', 'system.Region/getChildren');
+    });
+
 
     //资源路由
     Route::group(function () {

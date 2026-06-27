@@ -69,6 +69,14 @@
       <s-select-user v-model="form.order_user_id" placeholder="请选择公司签约人" />
     </a-form-item>
 
+    <a-form-item label="销售主管" name="sales_manager_id">
+      <s-select-user v-model="form.sales_manager_id" placeholder="请选择销售主管" />
+    </a-form-item>
+
+    <a-form-item label="工单主管" name="work_manager_id">
+      <s-select-user v-model="form.work_manager_id" placeholder="请选择工单主管" />
+    </a-form-item>
+
     <s-date-picker
       label="签约时间"
       name="signing_time"
@@ -84,9 +92,9 @@
     />
     <s-radio-group
       v-model="form.status"
-      dictType="contract_status"
       label="合同状态"
       name="status"
+      :options="statusOptions"
     ></s-radio-group>
 
     <s-textarea
@@ -118,12 +126,15 @@ const form = reactive({
   customer_id: undefined,
   order_user_id: undefined,
   contacts_id: undefined,
+  sales_manager_id: undefined,
+  work_manager_id: undefined,
   money: undefined,
   remark: undefined,
   order_no: undefined,
   status: 0 as number | undefined,
   total_price: undefined,
-  product: []
+  product: [] as Recordable[],
+  product_num: 1 as number
 });
 
 const [register] = useModalInner((id: number) => {
@@ -138,9 +149,20 @@ const rules = reactive({
   customer_id: [{ required: true, message: "请选择客户" }],
   order_user_id: [{ required: true, message: "请选择公司签约人" }],
   contacts_id: [{ required: true, message: "请选择客户签约人" }],
+  sales_manager_id: [{ required: true, message: "请选择销售主管" }],
   money: [{ required: true, message: "请输入合同金额" }],
   status: [{ required: true, message: "请选择合同状态" }]
 });
+
+// 合同状态选项：草稿(0)、待审核(1)、待付款(2)、办理中(3)、已完结(4)、已取消(5)
+const statusOptions = [
+  { label: "草稿", value: 0 },
+  { label: "待审核", value: 1 },
+  { label: "待付款", value: 2 },
+  { label: "办理中", value: 3 },
+  { label: "已完结", value: 4 },
+  { label: "已取消", value: 5 }
+];
 
 const disabled = ref(true);
 const customerData = ref({});
@@ -206,9 +228,18 @@ const contacts_col = ref([
   }
 ]);
 
+// 监听产品列表变化，自动更新产品总数
+watch(
+  () => form.product,
+  (newVal) => {
+    form.product_num = newVal.length > 0 ? newVal.length : 1;
+  },
+  { deep: true }
+);
+
 const getBindValue = computed(() => {
   return {
-    width: 750,
+    width: 850,
     title: "合同",
     model: form,
     saveApi: save,
