@@ -10,6 +10,11 @@ use app\model\customer\Customer;
 use app\model\business\Business;
 use app\model\contacts\Contacts;
 use app\model\product\Product;
+use app\model\product\ProductPackageItem;
+use app\model\product\ProductStep;
+use app\model\contract\ServicePeriod;
+use app\model\contract\WorkOrder;
+use app\model\contract\WorkOrderNode;
 use core\exception\FailedException;
 use core\facade\Util;
 
@@ -50,7 +55,12 @@ class ContractService extends BaseService
      */
     public function getProduct($id)
     {
-        return ContractProduct::where('contract_id', $id)->with(['product'])->paginate();
+        return ContractProduct::where('contract_id', $id)
+            ->with(['product', 'ownerUser', 'workManager'])
+            ->append(['finish_status_text', 'core_text'])
+            ->order('sort', 'asc')
+            ->order('id', 'asc')
+            ->paginate();
     }
 
     /**
@@ -63,7 +73,7 @@ class ContractService extends BaseService
         $data['create_user_id'] = request()->uid();
         $data['owner_user_id'] = request()->uid();
         $data['order_no'] = $this->createOrderNo();
-        $product = $data['product'] ?? [];
+        $product = $this->normalizeContractProducts($data['product'] ?? [], $data);
         $this->startTrans();
         try {
             $contract_id = $this->model->storeBy($data);
@@ -77,6 +87,7 @@ class ContractService extends BaseService
                     }
                 }
                 $contract->contractProduct()->saveAll($product);
+                $this->generateWorkflow($contract_id);
             }
             if ($contract_id) {
                 action_log('contract', $contract_id, '新增', '新增合同『' . $data['name'] . '』');
@@ -142,9 +153,11 @@ class ContractService extends BaseService
             $changed = Util::getChangedFields($contractData, $data, ['product']);
             [$result, $message] = $this->model->checkDataAuth($contractData['owner_user_id'], $contractData['name']);
             if (!$result) throw new FailedException($message);
-            $product = $data['product'] ?? [];
+            $product = $this->normalizeContractProducts($data['product'] ?? [], array_merge($contractData, $data));
             $result = $this->model->updateBy($id, $data);
             Product::syncRelatedRecords(ContractProduct::class, 'contract_id', $id, $product);
+            $this->cleanInvalidWorkflow($id);
+            $this->generateWorkflow($id);
             if ($result) {
                 $logContent = '更新合同『' . ($data['name'] ?? $contractData['name']) . '』，变更字段：';
                 $logContent .=  Util::formatChangedFields($changed);
@@ -179,7 +192,7 @@ class ContractService extends BaseService
         $data->customer = Customer::field('id,name')->find($data->customer_id);
         $data->business = Business::field('id,name')->find($data->business_id);
         $data->contacts = Contacts::field('id,name')->find($data->contacts_id);
-        $data->product  = ContractProduct::where('contract_id', $id)->with(['product'])->select();
+        $data->product  = ContractProduct::where('contract_id', $id)->with(['product', 'ownerUser', 'workManager'])->append(['finish_status_text', 'core_text'])->select();
         return $data;
     }
 
