@@ -1,0 +1,116 @@
+<template>
+  <s-table @register="register" />
+</template>
+
+<script setup lang="tsx">
+import { getWorkOrder, updateWorkOrder } from "@/api/contract";
+
+const props = defineProps({
+  dataId: {
+    type: [String, Number],
+    required: true
+  }
+});
+
+const { responseNotice } = useMessage();
+const statusOptions = [
+  { label: "未开始", value: 0 },
+  { label: "办理中", value: 1 },
+  { label: "已完结", value: 2 },
+  { label: "异常", value: 3 },
+  { label: "已取消", value: 4 }
+];
+const workTypeMap: Record<string, string> = {
+  single: "单次",
+  long_term: "长期",
+  periodic: "周期",
+  stage: "阶段"
+};
+
+/**
+ * 更新工单状态
+ * @param record 当前工单行
+ * @param status 新状态
+ */
+const changeStatus = (record: Recordable, status: number) => {
+  return updateWorkOrder(record.id, { status }).then(res => {
+    responseNotice(res);
+    search();
+  });
+};
+
+const columns = [
+  {
+    title: "工单编号",
+    dataIndex: "work_order_no",
+    width: 160
+  },
+  {
+    title: "标题",
+    dataIndex: "title",
+    width: 180
+  },
+  {
+    title: "子业务",
+    dataIndex: "product_name",
+    width: 150
+  },
+  {
+    title: "服务周期",
+    dataIndex: "period_name",
+    width: 120
+  },
+  {
+    title: "工单类型",
+    dataIndex: "work_type",
+    width: 90,
+    customRender: ({ text }) => workTypeMap[text] || text || "-"
+  },
+  {
+    title: "负责人",
+    dataIndex: "owner_user_name",
+    width: 100
+  },
+  {
+    title: "进度",
+    dataIndex: "progress",
+    width: 120,
+    customRender: ({ text }) => <a-progress percent={Number(text || 0)} size="small" />
+  },
+  {
+    title: "状态",
+    dataIndex: "status",
+    width: 120,
+    customRender: ({ record }) => (
+      <a-select
+        value={record.status}
+        options={statusOptions}
+        style={{ width: "110px" }}
+        onChange={(value: number) => changeStatus(record, value)}
+      />
+    )
+  },
+  {
+    title: "完结时间",
+    dataIndex: "finish_time",
+    width: 120
+  },
+  {
+    title: "最后跟进",
+    dataIndex: "last_record",
+    width: 180
+  }
+];
+
+const [register, { search }] = useTable({
+  columns,
+  queryParams: { contract_id: props.dataId },
+  listApi: getWorkOrder,
+  scroll: { x: 1300 },
+  showTableSetting: false,
+  rootStyle: { padding: 0 },
+  bordered: true,
+  showAction: false,
+  size: "middle"
+});
+</script>
