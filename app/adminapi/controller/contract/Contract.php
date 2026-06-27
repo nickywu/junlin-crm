@@ -114,6 +114,22 @@ class Contract extends BaseController
     }
 
 
+    /**
+     * 重新生成合同服务周期和工单
+     *
+     * @return \think\Response
+     */
+    public function generateWorkflow()
+    {
+        $contract_id = $this->request->param('contract_id');
+        if (!$contract_id) {
+            $this->error('合同不能为空');
+        }
+        $result = $this->service->generateWorkflow($contract_id);
+        $result ? $this->success('生成成功') : $this->error('生成失败');
+    }
+
+
 
     /**
      * 删除

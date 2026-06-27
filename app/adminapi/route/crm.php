@@ -128,8 +128,6 @@ Route::group(function () {
         Route::resource('product', 'product.product');
         //产品套餐子业务模板
         Route::resource('product/packageItem', 'product.productPackageItem');
-        //合同
-        Route::resource('contract', 'contract.contract');
         //合同服务周期
         Route::resource('contract/servicePeriod', 'contract.servicePeriod')->only(['index', 'update']);
         //合同工单
